@@ -1,0 +1,20 @@
+{%extends 'base.html' %}
+{% block content %}
+
+<form method="post">
+    <section id="auth">
+    <section id="login">
+    <h1 class="login-title">Register</h1>
+    <a class="btn btn-link register-link" href="login">Already registered?</a>
+        {% csrf_token %}
+        {{form}}
+        <br>
+    <input class="btn btn-primary mybtn" type="submit">
+
+</section>
+</section>
+
+</form>
+{% endblock %}
+
+

@@ -1,0 +1,42 @@
+{%extends 'base.html' %}
+{% block content %}
+<nav class="navbar mynavbar " style="border: solid black 2px;">
+    <span class="navbar-brand mb-1 h1 myuser">
+        <button type="button" class="btn btn-outline-light me-2">{{user}} </button>
+
+    </span>
+
+<style>
+    .cards-body, .cards-container, tr {
+      background: linear-gradient(90deg, #dc0a0a 1.98%, #380e69 43.89%, #050c50 87.36%);
+    }
+    tr{
+        border: solid 3px rgba(255, 255, 255, 0.501);
+        color: rgb(196, 196, 196);
+    }
+    nav{
+        text-align: center;
+        display: flex;
+    }
+</style>
+
+<!-- <script>
+    function deleteObject(name, student, professor, grade, date, observations) {
+        if (confirm(`Are you sure you want to delete  this student: ${student}?`)) {
+            fetch(`/delete/${name}/${date}`)
+            .then(response => {
+                if (response.status === 200) {
+                    window.location.reload();
+                } else {
+                    alert(`Failed to delete the grade of ${grade} in ${name}.`);
+                }
+            })
+            .catch(error => {
+                alert(`Failed to delete the grade of ${grade} in ${name}: ${error}`);
+            });
+        }
+    }
+</script> -->
+
+{% endblock %}
+    

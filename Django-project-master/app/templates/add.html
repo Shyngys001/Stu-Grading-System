@@ -1,0 +1,107 @@
+{%extends 'base.html' %}
+{% block content %}
+<nav class="navbar mynavbar ">
+    <span class="navbar-brand mb-1 h1 myuser">Hello {{user}}!</span>
+    <span class="navbar-brand mb-1 h1 myuser">
+        <a class="btn btn-link myuser" style="padding-right: 35px;" href="/">Home</a>
+        <a class="btn btn-link myuser" style="padding-right: 35px;">Add grade</a>
+
+    </span>
+</nav>
+
+<form method="post">
+    <section id="auth">
+        <section id="login">
+            <h1 class="login-title">Бағалау</h1>
+
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.name.id_for_label }}">Сабақ / Предмет :</label>
+                <input type="text" class="form-control" id="{{ form.name.id_for_label }}" name="{{ form.name.name }}" value="{{ request.user.name }}">
+            </div>
+            <div class="form-group">
+                <label for="{{ form.student.id_for_label }}">Аты-жөні :</label>
+                <input type="text" class="form-control" id="{{ form.student.id_for_label }}" name="{{ form.student.name }}" value="{{ request.user.student }}">
+            </div>
+            <div class="form-group">
+                <label for="{{ form.professor.id_for_label }}">Мұғалім :</label>
+                <input type="text" class="form-control" id="{{ form.professor.id_for_label }}" name="{{ form.professor.name }}" value="{{ request.user.professor }}">
+            </div>
+            <div class="form-group">
+                <label for="{{ form.grade.id_for_label }}">Баға :</label>
+                <input type="number" class="form-control" id="{{ form.grade.id_for_label }}" name="{{ form.grade.name }}" value="{{ request.user.grade }}">
+            </div>
+            <div class="form-group">
+                <label for="{{ form.date.id_for_label }}">Дата :</label>
+                <input type="date" class="form-control" id="{{ form.date.id_for_label }}" name="{{ form.date.name }}" value="{{ request.user.date }}">
+            </div>
+            <div class="form-group">
+                <label for="{{ form.observations.id_for_label }}">Комментарий :</label>
+                <input type="text" class="form-control" id="{{ form.observations.id_for_label }}" name="{{ form.observations.name }}" value="{{ request.user.observations }}">
+            </div>
+            <br>
+            <button class="btn btn-primary mybtn" type="submit"> Сақтау</button>
+
+        </section>
+    </section>
+
+</form>
+<style>
+    #login{
+      background: linear-gradient(90deg, #dc0a0a 1.98%, #380e69 43.89%, #050c50 87.36%);
+        color: beige;
+        width: 100%;
+    }
+    label, h1{
+        background-image: linear-gradient(90deg, #F0B64D 1.98%, #D778B3 43.89%, #5E6BF5 87.36%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+    form {
+      margin: 0 auto;
+      max-width: 600px;
+      margin-top: 80px;
+      background-color: transparent;
+      text-align: center;
+    }
+
+    .form-label {
+      font-weight: 600;
+      background-image: linear-gradient(90deg, #F0B64D 1.98%, #D778B3 43.89%, #5E6BF5 87.36%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .btn {
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      border-radius: 50px;
+      font-size: 16px;
+      background-color: #f8f9fa;
+      border: none;
+    }
+
+    button[type="submit"] {
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: linear-gradient(90deg, #d602ba 1.98%, #841393 43.89%, #5E6BF5 87.36%);
+      border: none;
+      transition: all 0.2s ease-in-out;
+    }
+
+    button[type="submit"]:hover {
+      background: linear-gradient(90deg, #933cc9 1.98%, #380e69 43.89%, #6b74cc 87.36%);
+      transform: translateY(-2px);
+    }
+    .border {
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+</style>
+{% endblock %}

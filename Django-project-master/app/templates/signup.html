@@ -1,0 +1,98 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock title%}
+
+{% block content %}
+<div class="container d-flex justify-content-center">
+    <form method="post" >
+      {% csrf_token %}
+      <h1 class="mb-4 text-center">Registration</h1>
+      <div class="mb-3">
+        <label for="{{ form.username.id_for_label }}" class="form-label" >Username:</label>
+        {{ form.username }}
+      </div>
+      <!-- <div class="mb-3">
+        <label for="{{ form.email.id_for_label }}" class="form-label">Email:</label>
+        {{ form.email }} 
+      </div> -->
+     
+      <div class="mb-3">
+        <label for="{{ form.password1.id_for_label }}" class="form-label">Password:</label>
+        {{ form.password1 }}
+      </div>
+      <div class="mb-3">
+        <label for="{{ form.password2.id_for_label }}" class="form-label">Password:</label>
+        {{ form.password2 }}
+      </div>
+      <button type="submit" class="btn btn-success btn-block" style="width: 50%; margin: 0 auto;">Register</button>
+    </form>
+  </div>
+
+  <style>
+    body{
+      background-image: url('https://avatars.mds.yandex.net/i?id=eaed3dcb06211ca2627a6cb9171111a175e6b27e-8175992-images-thumbs&n=13');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    form {
+      max-width: 600px;
+      margin-top: 80px;
+      background-color: transparent;
+      text-align: center;
+      border: solid 1px white;
+      border-radius: 50px;
+    
+    }
+
+    .form-label, h1 {
+      font-weight: 600;
+      background-image: linear-gradient(90deg, #F0B64D 1.98%, #D778B3 43.89%, #5E6BF5 87.36%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .btn {
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #f8f9fa;
+      border: none;
+      width: 50%;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      outline: none;
+      box-shadow: none;
+      border-color: #28a745;
+    }
+
+    button[type="submit"] {
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: linear-gradient(90deg, #d602ba 1.98%, #841393 43.89%, #5E6BF5 87.36%);
+      border: none;
+      transition: all 0.2s ease-in-out;
+    }
+
+    button[type="submit"]:hover {
+      background: linear-gradient(90deg, #933cc9 1.98%, #380e69 43.89%, #6b74cc 87.36%);
+      transform: translateY(-2px);
+    }
+
+    .border {
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(128, 46, 46, 0.1);
+    }
+  </style>
+  
+{% endblock content %}

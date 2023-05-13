@@ -1,0 +1,41 @@
+#login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    width: 300px;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #933cc9 1.98%, #380e69 43.89%, #6b74cc 87.36%);
+
+    box-shadow: 2px 3px 8px 1px #3a6365;
+}
+
+#auth {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.login-title {
+    color: white;
+}
+
+.register-link {
+    color: whitesmoke;
+}
+
+.main {
+    background-color: #d6eae2;
+    height: 100%;
+    width: 100%;
+}
+
+.mynavbar {
+    background: linear-gradient(90deg, #933cc9 1.98%, #380e69 43.89%, #6b74cc 87.36%);
+
+}
+
+.myuser {
+    color: white;
+}

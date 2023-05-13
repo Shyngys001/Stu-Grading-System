@@ -1,0 +1,101 @@
+{%extends 'base.html' %}
+{% block content %}
+<nav class="navbar mynavbar " style="border: solid black 2px;">
+    <span class="navbar-brand mb-1 h1 myuser">
+        <button type="button" class="btn btn-outline-light me-2">{{user}} </button>
+
+    </span>
+    <a href="">
+        <a href="https://eko.edu.kz/"> <button type="button" class="btn btn-outline-light me-2" style="border:  none;">
+        <img src="https://avatars.mds.yandex.net/i?id=2a0000017a07a9be8d75ccf0b11a6b025ffe-4509882-images-thumbs&n=13" style="border-radius: 50%; width: 20%;" alt="as">
+
+        </button></a>
+     </a> 
+    <span class="navbar-brand mb-1 h1 myuser"  >
+        <a class="btn btn-link myuser" style="padding-right: 35px;" href="/">Home</a>
+        {%if request.user.is_superuser%}
+        <a class="btn btn-link myuser" style="padding-right: 35px;" href="add">Add grade</a>
+        {%endif%}
+        <a class="btn btn-link myuser" href="login/login" >Logout</a>
+    </span>
+</nav>
+
+<ul>
+    {% for object in d %}
+    <li>
+        <div class="cards-list-container">
+            <div class="cards-container">
+                <div class="conference-header">
+                    <h4 class="cards-title"><b> {{object}}</b></h4>
+                    <pclass="conference-phase"></p>
+                </div>
+
+                <table class="cards-body">  
+                    <tr class="trhead">
+                        <th>Student Name</th>
+                        <th>Grade</th>
+                        <th>Graded by</th>
+                        <th>Date</th>
+                        <th>Observations</th>
+                    </tr>
+                    {% for value in subjects %}
+                    {% if value.name == object %}
+                    <tr>
+                        <th>{{value.student}}</th>
+                        <th>{{value.grade}}</th>
+                        <th>{{value.professor}}</th>
+                        <th>{{value.date}}</th>
+                        <th>{{value.observations}}</th>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+<style>
+    .cards-body, .cards-container, tr {
+      background: linear-gradient(90deg, #dc0a0a 1.98%, #380e69 43.89%, #050c50 87.36%);
+    }
+    tr{
+        border: solid 3px rgba(255, 255, 255, 0.501);
+        color: rgb(196, 196, 196);
+        background: linear-gradient(90deg, #dd5151 1.98%, #380e69 43.89%, #050c50 87.36%);
+
+    }
+    nav{
+        text-align: center;
+        display: flex;
+    }
+    h4{
+        color: black;
+    }
+    .conference-header{
+        color: black;
+
+    }
+</style>
+
+<!-- <script>
+    function deleteObject(name, student, professor, grade, date, observations) {
+        if (confirm(`Are you sure you want to delete  this student: ${student}?`)) {
+            fetch(`/delete/${name}/${date}`)
+            .then(response => {
+                if (response.status === 200) {
+                    window.location.reload();
+                } else {
+                    alert(`Failed to delete the grade of ${grade} in ${name}.`);
+                }
+            })
+            .catch(error => {
+                alert(`Failed to delete the grade of ${grade} in ${name}: ${error}`);
+            });
+        }
+    }
+</script> -->
+
+{% endblock %}
+    
